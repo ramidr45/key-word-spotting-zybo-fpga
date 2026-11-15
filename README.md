@@ -25,6 +25,22 @@ by **MFCC features + an MLP neural network** written in bare-metal **C** on the 
 | Features | MFCC in C: Hann window, radix-2 FFT (512), 26 Slaney mel filters, log-power (top_db 80), DCT-II ortho, time mean → 13 values |
 | Classifier | Dense MLP 13→128→64→32→3 (ReLU, softmax), trained in TensorFlow/Keras on Google Speech Commands, weights exported to a C header |
 
+## AI model
+
+Training notebook: [`training/keyword_spotting_training.ipynb`](training/keyword_spotting_training.ipynb) (Kaggle, TensorFlow/Keras, Google Speech Commands v0.02).
+
+| | |
+|---|---|
+| Features | MFCC, 48 kHz, n_fft 512, hop 512, 26 mel bands, 13 coefficients averaged over 1 s |
+| Network | Dense 128 → Dropout 0.3 → 64 → Dropout 0.3 → 32 → softmax 3 (ReLU) |
+| Training | Adam 1e-3, class weights, EarlyStopping + ReduceLROnPlateau, 70/15/15 split |
+| Data | ~4,000 "yes", ~3,900 "no", "unknown" = 35 other words + 1 s background-noise segments |
+
+The board currently runs the 13-feature model (`model/best_model.keras`, ≈73 % accuracy on its
+feature set). The notebook's latest version adds the per-coefficient standard deviation
+(26 features) and reaches **81 % test accuracy** (yes 0.90 / no 0.81 / unknown 0.69 F1);
+porting it only requires computing the std in `mfcc.c`.
+
 ## Verification
 
 | Check | Result |
