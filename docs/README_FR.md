@@ -1,8 +1,8 @@
 # Keyword Spotting temps réel sur Zynq — Edge AI sur carte Zybo
 
-**Auteur :** Rami Dridi, 3e année Génie Électrique, ENIT
-**Carte :** Digilent Zybo (Zynq-7010 : FPGA + double cœur ARM Cortex-A9)
-**Outils :** Vivado / SDK 2018.2, VHDL, C bare-metal, Python (TensorFlow / Keras, librosa)
+**Auteur :** Rami Dridi, 3e année Génie Électrique, ENIT  
+**Carte :** Digilent Zybo (Zynq-7010 : FPGA + double cœur ARM Cortex-A9)  
+**Outils :** Vivado / SDK 2018.2, VHDL, C bare-metal, Python (TensorFlow / Keras, librosa)  
 **Code source :** https://github.com/ramidr45/key-word-spotting-zybo-fpga
 
 ---
