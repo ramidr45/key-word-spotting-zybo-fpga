@@ -1,0 +1,19 @@
+# Vivado / SDK generated
+hw/build/
+sw/workspace/
+sw/boot/
+.Xil/
+*.jou
+*.log
+*.str
+# debug outputs
+diag.txt
+debug.txt
+debug_boot.txt
+captures/
+# Python / host test
+__pycache__/
+tools/host_test/kws_host
+tools/host_test/*.f32
+hw/sim/work_ghdl/
+*.ghw
